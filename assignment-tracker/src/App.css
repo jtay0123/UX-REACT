@@ -1,0 +1,821 @@
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7f7;
+  color: #333;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: Arial, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  padding-bottom: 85px;
+}
+
+.page {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 25px 20px;
+}
+
+.page h1 {
+  margin: 0 0 20px;
+  color: #004d40;
+  font-size: 28px;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button {
+  border: none;
+  background: transparent;
+  color: #00796b;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0;
+  margin-bottom: 18px;
+}
+
+.back-button:hover {
+  color: #004d40;
+}
+
+
+/* =========================
+   ASSIGNMENT CARDS
+========================= */
+
+.assignment-card {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.assignment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.card-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.assignment-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #eeeeee;
+  font-size: 13px;
+}
+
+.assignment-detail span:first-child {
+  color: #777;
+  font-weight: bold;
+}
+
+.assignment-detail span:last-child {
+  color: #555;
+  text-align: right;
+}
+
+.card-top > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.assignment-card h3 {
+  margin: 0 0 6px;
+  color: #004d40;
+  font-size: 18px;
+}
+
+.subject {
+  margin: 0 0 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+.assignment-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.assignment-date {
+  color: #555;
+}
+
+.completed-label {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #e0f2f1;
+  color: #00796b;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+/* =========================
+   PRIORITY
+========================= */
+
+.priority {
+  display: inline-block;
+  min-width: 70px;
+  padding: 7px 12px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid;
+}
+
+.priority.high {
+  background: #ffebee;
+  color: #c62828;
+  border-color: #ef9a9a;
+}
+
+.priority.medium {
+  background: #fff8e1;
+  color: #f57f17;
+  border-color: #ffcc80;
+}
+
+.priority.low {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-color: #a5d6a7;
+}
+
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress-container {
+  margin-top: 12px;
+}
+
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #666;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #00796b;
+  border-radius: 10px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-container {
+  margin-bottom: 15px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #00796b;
+  box-shadow: 0 0 0 2px #e0f2f1;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #e0f2f1;
+  color: #00796b;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.filter-button:hover {
+  background: #b2dfdb;
+}
+
+.filter-button.active {
+  background: #00796b;
+  color: white;
+}
+
+
+/* =========================
+   FILTER BUTTONS
+========================= */
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #e0f2f1;
+  color: #00796b;
+  font-weight: bold;
+}
+
+.filter-button:hover {
+  background: #b2dfdb;
+}
+
+.filter-button.active {
+  background: #00796b;
+  color: white;
+}
+
+
+/* =========================
+   ADD (+) BUTTON
+========================= */
+
+.add-button {
+  position: fixed;
+  right: calc(50% - 220px);
+  bottom: 85px;
+
+  width: 55px;
+  height: 55px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #00796b;
+  color: white;
+
+  font-size: 30px;
+  line-height: 55px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  z-index: 90;
+}
+
+.add-button:hover {
+  background: #004d40;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.assignment-form,
+.details-card {
+  background: white;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.assignment-form label,
+.details-card label {
+  display: block;
+  margin-bottom: 7px;
+  margin-top: 15px;
+
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
+
+.assignment-form label:first-of-type,
+.details-card label:first-of-type {
+  margin-top: 0;
+}
+
+.assignment-form input,
+.assignment-form select,
+.assignment-form textarea,
+.details-card input,
+.details-card select,
+.details-card textarea {
+  width: 100%;
+  padding: 12px;
+
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  background: #fff;
+
+  font-size: 14px;
+  outline: none;
+}
+
+.assignment-form input:focus,
+.assignment-form select:focus,
+.assignment-form textarea:focus,
+.details-card input:focus,
+.details-card select:focus,
+.details-card textarea:focus {
+  border-color: #00796b;
+  box-shadow: 0 0 0 2px #e0f2f1;
+}
+
+.assignment-form textarea,
+.details-card textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+
+/* =========================
+   RANGE / PROGRESS INPUT
+========================= */
+
+.assignment-form input[type="range"],
+.details-card input[type="range"] {
+  padding: 0;
+  accent-color: #00796b;
+  cursor: pointer;
+}
+
+.range-value {
+  text-align: right;
+  margin-top: 5px;
+
+  color: #00796b;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+/* =========================
+   SAVE BUTTON
+========================= */
+
+.save-button {
+  width: 100%;
+
+  margin-top: 22px;
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #00796b;
+  color: white;
+
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.save-button:hover {
+  background: #004d40;
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.delete-button {
+  width: 100%;
+
+  margin-top: 10px;
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #d32f2f;
+  color: white;
+
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.delete-button:hover {
+  background: #b71c1c;
+}
+
+
+/* =========================
+   DELETE CONFIRMATION
+========================= */
+
+.delete-confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  z-index: 200;
+}
+
+.delete-box {
+  width: 100%;
+  max-width: 400px;
+
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.delete-box h3 {
+  margin-top: 0;
+  color: #c62828;
+  font-size: 20px;
+}
+
+.delete-box p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.delete-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.delete-actions button {
+  flex: 1;
+  padding: 12px;
+
+  border-radius: 10px;
+
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.delete-actions button:first-child {
+  border: 1px solid #ccc;
+  background: white;
+  color: #555;
+}
+
+.delete-actions button:first-child:hover {
+  background: #f5f5f5;
+}
+
+.confirm-delete {
+  border: none;
+  background: #d32f2f;
+  color: white;
+}
+
+.confirm-delete:hover {
+  background: #b71c1c;
+}
+
+
+/* =========================
+   CALENDAR
+========================= */
+
+.calendar {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  color: #004d40;
+  font-size: 20px;
+}
+
+.calendar-header button {
+  border: none;
+  background: #e0f2f1;
+  color: #00796b;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 22px;
+}
+
+/* Sun Mon Tue Wed Thu Fri Sat */
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.calendar-weekdays div {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #777;
+}
+
+/* Date boxes */
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-day {
+  width: 100%;
+  height: 42px;
+
+  border: none;
+  background: #f5f7f7;
+
+  border-radius: 10px;
+
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.calendar-day:hover {
+  background: #b2dfdb;
+}
+
+.calendar-day.selected {
+  background: #00796b;
+  color: white;
+  font-weight: bold;
+}
+
+/* Empty spaces before October 1 */
+
+.calendar-empty {
+  height: 42px;
+}
+
+/* Assignment dot */
+
+.calendar-dot {
+  display: block;
+  color: #00796b;
+  font-size: 16px;
+  line-height: 8px;
+}
+
+.calendar-day.selected .calendar-dot {
+  color: white;
+}
+
+/* Selected date section */
+
+.selected-date-section {
+  margin-top: 20px;
+}
+
+.selected-date-section h2 {
+  color: #004d40;
+}
+
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav {
+  position: fixed;
+
+  bottom: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 500px;
+
+  height: 72px;
+
+  background: white;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border-top: 1px solid #ddd;
+
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.08);
+
+  z-index: 100;
+}
+
+.bottom-nav button {
+  flex: 1;
+
+  height: 100%;
+
+  border: none;
+
+  background: transparent;
+
+  color: #777;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 4px;
+
+  font-size: 12px;
+}
+
+.bottom-nav button span {
+  font-size: 23px;
+  line-height: 1;
+}
+
+.bottom-nav button small {
+  font-size: 11px;
+}
+
+.bottom-nav button:hover {
+  color: #00796b;
+}
+
+.bottom-nav button.active {
+  color: #00796b;
+  font-weight: bold;
+}
+
+.bottom-nav button.active span {
+  transform: scale(1.05);
+}
+
+
+/* =========================
+   EMPTY MESSAGE
+========================= */
+
+.empty-message {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  color: #777;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 520px) {
+  .page {
+    padding: 20px 15px;
+  }
+
+  .page h1 {
+    font-size: 25px;
+  }
+
+  .add-button {
+    right: 20px;
+  }
+
+  .calendar-grid {
+    gap: 5px;
+  }
+
+  .calendar-day {
+    padding: 10px 3px;
+  }
+
+  .assignment-card {
+    padding: 16px;
+  }
+}
+
+
+.calendar-day.has-assignment {
+  background-color: #e0f2f1;
+  border: 1px solid #4db6ac;
+  color: #004d40;
+}
+
+.calendar-day.selected {
+  background-color: #00796b;
+  color: white;
+  border-color: #00796b;
+}
+
+.calendar-day.selected.has-assignment {
+  background-color: #00796b;
+  color: white;
+}
+
+.calendar-dot {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #00796b;
+}
+
+.calendar-day.selected .calendar-dot {
+  background-color: white;
+}
