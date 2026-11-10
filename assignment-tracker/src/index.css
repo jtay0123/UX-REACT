@@ -109,3 +109,19 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+
+.calendar-day.priority-high {
+  background-color: #ffcdd2;
+  color: #b71c1c;
+}
+
+.calendar-day.priority-medium {
+  background-color: #fff9c4;
+  color: #f57f17;
+}
+
+.calendar-day.priority-low {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+}

@@ -19,37 +19,43 @@ function AssignmentDetails({
     });
   };
 
-  const handleUpdate = (e) => {
-    e.preventDefault();
 
-    updateAssignment({
-      ...form,
-      progress: Number(form.progress),
-    });
+const handleUpdate = (e) => {
+  e.preventDefault();
 
-    alert("Assignment updated successfully.");
-  };
+  updateAssignment({
+    ...form,
+    progress: Number(form.progress),
+  });
+
+  alert("Assignment updated successfully.");
+
+  goBack();
+};
+
 
   return (
     <div className="page">
 
-      <button
-        className="back-button"
-        onClick={goBack}
-      >
-        ← Back
-      </button>
+
 
       <h1>Assignment Details</h1>
 
-      <form
-        className="details-card"
-        onSubmit={handleUpdate}
-      >
+<form
+  className="details-card"
+  onSubmit={handleUpdate}
+>
+  <button
+    type="button"
+    className="details-back-button"
+    onClick={goBack}
+  >
+    ← Back
+  </button>
 
-        <label>
-          Assignment Name
-        </label>
+  <label>
+    Assignment Name
+  </label>
 
         <input
           type="text"

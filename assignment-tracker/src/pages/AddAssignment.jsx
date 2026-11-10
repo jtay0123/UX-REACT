@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 function AddAssignment({
@@ -25,24 +26,25 @@ function AddAssignment({
     e.preventDefault();
 
     addAssignment(form);
+
+    alert("Assignment added successfully.");
   };
 
   return (
     <div className="page">
-
-      <button
-        className="back-button"
-        onClick={goBack}
-      >
-        ← Back
-      </button>
-
       <h1>Add Assignment</h1>
 
       <form
         className="assignment-form"
         onSubmit={handleSubmit}
       >
+        <button
+          type="button"
+          className="details-back-button"
+          onClick={goBack}
+        >
+          ← Back
+        </button>
 
         <label>
           Assignment Name
@@ -101,17 +103,9 @@ function AddAssignment({
           value={form.priority}
           onChange={handleChange}
         >
-          <option value="Low">
-            Low
-          </option>
-
-          <option value="Medium">
-            Medium
-          </option>
-
-          <option value="High">
-            High
-          </option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
         </select>
 
         <label>
@@ -148,9 +142,7 @@ function AddAssignment({
         >
           Add Assignment
         </button>
-
       </form>
-
     </div>
   );
 }

@@ -800,22 +800,51 @@ button {
   border-color: #00796b;
 }
 
-.calendar-day.selected.has-assignment {
-  background-color: #00796b;
-  color: white;
+
+.calendar-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  margin-top: 4px;
+  flex-wrap: wrap;
 }
 
 .calendar-dot {
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background-color: #00796b;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
-.calendar-day.selected .calendar-dot {
-  background-color: white;
+.calendar-dot.priority-high {
+  background-color: #e53935;
+}
+
+.calendar-dot.priority-medium {
+  background-color: #fbc02d;
+}
+
+.calendar-dot.priority-low {
+  background-color: #43a047;
+}
+
+
+.details-back-button {
+  align-self: flex-start;
+  background-color: #e0f2f1;
+  color: #004d40;
+  border: 1px solid #b2dfdb;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: 0.2s ease;
+}
+
+.details-back-button:hover {
+  background-color: #b2dfdb;
 }
