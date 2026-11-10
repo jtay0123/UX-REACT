@@ -17,8 +17,6 @@ function CalendarPage({
   const daysInOctober = 31;
 
   // October 1, 2026 is Thursday
-  // Sunday = 0, Monday = 1, Tuesday = 2,
-  // Wednesday = 3, Thursday = 4
   const firstDay = 4;
 
   return (
@@ -61,19 +59,17 @@ function CalendarPage({
               const date =
                 `2026-10-${String(day).padStart(2, "0")}`;
 
-              const hasAssignment =
-                assignments.some(
-                  (assignment) =>
-                    assignment.dueDate === date &&
-                    !assignment.completed
-                );
+              const dayAssignments = assignments.filter(
+                (assignment) =>
+                  assignment.dueDate === date &&
+                  !assignment.completed
+              );
 
               return (
                 <button
                   key={day}
                   className={[
                     "calendar-day",
-                    hasAssignment ? "has-assignment" : "",
                     selectedDate === date ? "selected" : "",
                   ]
                     .filter(Boolean)
@@ -82,8 +78,15 @@ function CalendarPage({
                 >
                   {day}
 
-                  {hasAssignment && (
-                    <span className="calendar-dot"></span>
+                  {dayAssignments.length > 0 && (
+                    <span className="calendar-dots">
+                      {dayAssignments.map((assignment) => (
+                        <span
+                          key={assignment.id}
+                          className={`calendar-dot priority-${assignment.priority.toLowerCase()}`}
+                        ></span>
+                      ))}
+                    </span>
                   )}
                 </button>
               );
